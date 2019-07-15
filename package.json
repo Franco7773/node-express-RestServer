@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server/server.js -e js,css,hbs,html"
+    "start": "node server/server.js",
+    "nodemon": "nodemon server/server.js -e js,css,hbs,html"
   },
   "author": "Gianfranco D'Onofrio",
   "license": "ISC",
