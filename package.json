@@ -1,0 +1,15 @@
+{
+  "name": "07-restserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server/server.js -e js,css,hbs,html"
+  },
+  "author": "Gianfranco D'Onofrio",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
