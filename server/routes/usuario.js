@@ -2,11 +2,18 @@ const EXPRESS = require('express');
 const BCRYPT = require('bcrypt');
 const _ = require('underscore');
 const Usuario = require('../models/usuario');
+const { verificaToken, verificaAdmin } = require('../middlewares/autenticacion');
 
 const APP = EXPRESS();
 
 
-APP.get('/usuario', (req, res) => {
+APP.get('/usuario', verificaToken, (req, res) => {
+
+	// return res.json({
+	// 	usuario: req.usuario,
+	// 	nombre: req.usuario.nombre,
+	// 	email: req.usuario.email
+	// });
 		
 	let activos = { estado: true };
 	let desde = Number(req.query.desde) || 0;
@@ -24,11 +31,10 @@ APP.get('/usuario', (req, res) => {
 				usuario: conteo
 			});
 		});
-		
 	});
 });
 
-APP.post('/usuario', (req, res) => {
+APP.post('/usuario', [verificaToken, verificaAdmin], (req, res) => {
 
 	let body = req.body;
 
@@ -52,7 +58,7 @@ APP.post('/usuario', (req, res) => {
 	});
 });
 
-APP.put('/usuario/:id', (req, res) => {
+APP.put('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
 	let id = req.params.id;
 	let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
@@ -68,7 +74,7 @@ APP.put('/usuario/:id', (req, res) => {
 	});
 });
 
-APP.delete('/usuario/:id', (req, res) => {
+APP.delete('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
 	let id = req.params.id;
 	let cambiaEstado = {

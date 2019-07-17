@@ -9,7 +9,7 @@ APP.use(BODYparser.urlencoded({ extended: false }));
 // Parse application/json
 APP.use(BODYparser.json());
 
-APP.use( require('./routes/usuario'));
+APP.use( require('./routes/index'));
 
 MONGOOSE.connect(process.env.URL_DB, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
 	if (err) throw err;

@@ -11,6 +11,18 @@ process.env.PORT = process.env.PORT || 3777;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 //===========================|
+//********* SEED ************|
+//===========================|
+
+process.env.SEED_TOKEN = process.env.SEED_TOKEN || 'este-es-el-seed-desarrollo';
+
+//===========================|
+//***** expires token *******|
+//===========================|
+
+process.env.EXPIRA_TOKEN = 60 * 60 * 24 * 30;
+
+//===========================|
 //********** DB *************|
 //===========================|
 
