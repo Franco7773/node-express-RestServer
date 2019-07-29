@@ -20,7 +20,7 @@ process.env.SEED_TOKEN = process.env.SEED_TOKEN || 'este-es-el-seed-desarrollo';
 //***** expires token *******|
 //===========================|
 
-process.env.EXPIRA_TOKEN = 60 * 60 * 24 * 30;
+process.env.EXPIRA_TOKEN = '48h';
 
 //===========================|
 //********** DB *************|
